@@ -15,6 +15,7 @@ export default defineConfig({
             }
         },
         outDir: 'dist',
-        emptyOutDir: true
+        emptyOutDir: true,
+        modulePreload: false
     }
 });
