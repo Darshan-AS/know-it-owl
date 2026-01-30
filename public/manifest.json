@@ -3,13 +3,21 @@
     "name": "Know It Owl",
     "version": "1.0.0",
     "description": "Extract learned words from Duolingo Practice Hub",
-    "permissions": [
-        "activeTab",
-        "scripting"
-    ],
     "host_permissions": [
         "https://www.duolingo.com/*"
     ],
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "identity"
+    ],
+    "oauth2": {
+        "client_id": "927426836599-ctgvj21dgajhquq159208bj633c9afag.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/documents",
+            "https://www.googleapis.com/auth/drive.file"
+        ]
+    },
     "action": {
         "default_popup": "src/popup/index.html",
         "default_icon": {

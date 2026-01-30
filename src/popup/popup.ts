@@ -1,3 +1,4 @@
+import { getAuthToken, searchForDoc, createDoc, appendToDoc, overwriteDoc } from '../utils/google-api';
 import './style.css';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -58,6 +59,48 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+    });
+
+    // ... (existing code)
+
+    const gdocBtn = document.getElementById('gdoc-btn') as HTMLButtonElement;
+
+    gdocBtn.addEventListener('click', async () => {
+        if (extractedData.length === 0) {
+            statusText.innerText = "No data to export.";
+            return;
+        }
+
+        statusText.innerText = "Authenticating with Google...";
+
+        try {
+            const token = await getAuthToken();
+
+            statusText.innerText = "Checking for 'Duolingo Words' doc...";
+            const DOC_NAME = 'Duolingo Words';
+            let doc = await searchForDoc(DOC_NAME, token);
+
+            if (!doc) {
+                statusText.innerText = "Creating new Doc...";
+                doc = await createDoc(DOC_NAME, token);
+            }
+
+            statusText.innerText = "Specifying content...";
+            const textContent = extractedData.map(e => `${e.word} - ${e.translation}`).join('\n');
+            const dateHeader = `--- Extracted on ${new Date().toLocaleDateString()} ---\n\n`;
+
+            statusText.innerText = "Overwriting Doc...";
+            await overwriteDoc(doc.id, dateHeader + textContent, token);
+
+            statusText.innerText = "Export Complete!";
+
+            // Optional: Open the doc?
+            // chrome.tabs.create({ url: `https://docs.google.com/document/d/${doc.id}/edit` });
+
+        } catch (error: any) {
+            console.error(error);
+            statusText.innerText = "Export Failed: " + (error.message || error);
+        }
     });
 
     const logBtn = document.getElementById('log-btn') as HTMLButtonElement;
