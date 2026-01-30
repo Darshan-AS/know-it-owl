@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know It Owl</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Know It Owl</h1>
+            <p class="subtitle">For Duolingo</p>
+        </header>
+
+        <main>
+            <div class="status-card" id="status-card">
+                <span id="status-text">Ready to extract</span>
+            </div>
+
+            <button id="extract-btn" class="primary-btn">
+                <span>Extract Words</span>
+            </button>
+
+            <div id="result-area" class="hidden">
+                <p>Found <strong id="word-count">0</strong> words.</p>
+                <button id="download-btn" class="secondary-btn">Download CSV</button>
+                <button id="log-btn" class="secondary-btn" style="margin-top: 8px;">Log to Console</button>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="popup.ts"></script>
+</body>
+
+</html>

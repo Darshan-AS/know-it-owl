@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Know It Owl",
+    "version": "1.0.0",
+    "description": "Extract learned words from Duolingo Practice Hub",
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://www.duolingo.com/*"
+    ],
+    "action": {
+        "default_popup": "src/popup/index.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.duolingo.com/practice-hub/words"
+            ],
+            "js": [
+                "assets/content.js"
+            ]
+        }
+    ],
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
+}

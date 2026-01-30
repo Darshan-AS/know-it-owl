@@ -1,0 +1,95 @@
+/* Modern clean look */
+:root {
+    --duo-green: #58cc02;
+    --duo-green-hover: #46a302;
+    --text-color: #3c3c3c;
+    --bg-color: #ffffff;
+    --gray-light: #f7f7f7;
+    --card-border: #e5e5e5;
+}
+
+body {
+    width: 320px;
+    height: 400px;
+    margin: 0;
+    font-family: 'DIN Next Rounded LT Pro', 'Nunito', sans-serif; /* Duolingo-ish font stack */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--duo-green);
+}
+
+.subtitle {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.status-card {
+    background: var(--gray-light);
+    border: 2px solid var(--card-border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.primary-btn {
+    background-color: var(--duo-green);
+    color: white;
+    border: none;
+    border-bottom: 4px solid var(--duo-green-hover);
+    border-radius: 12px;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.primary-btn:active {
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+}
+
+.secondary-btn {
+    background-color: white;
+    color: var(--duo-green);
+    border: 2px solid var(--card-border);
+    border-bottom: 4px solid var(--card-border);
+    border-radius: 12px;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+#result-area {
+    margin-top: 20px;
+    text-align: center;
+}
