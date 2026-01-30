@@ -48,3 +48,12 @@ This project uses:
 
 -   **"No words found"**: Ensure you are on the correct Duolingo page. If Duolingo updates their site layout, the CSS selectors might need updating in `src/content/extractor.ts`.
 -   **Logs**: Use the "Log to Console" button in the popup to see raw data in the web page's Developer Console (F12).
+
+### Google Docs Export Issues
+-   **"Access Denied" / "Verification Process" Error**:
+    -   While the app is in "Testing" mode in Google Cloud:
+    1.  Go to [Google Cloud Console](https://console.cloud.google.com/) > **APIs & Services** > **OAuth consent screen**.
+    2.  Scroll down to **Test users**.
+    3.  Click **ADD USERS**.
+    4.  Add your own email address (the one you are logging into Chrome with).
+    5.  Save.
